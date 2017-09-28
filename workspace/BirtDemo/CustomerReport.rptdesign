@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
+            <property name="odaURL">jdbc:classicmodels:sampledb</property>
+            <property name="odaUser">ClassicModels</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Customers" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">CUSTOMERNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CUSTOMERNAME</text-property>
+                    <text-property name="heading">CUSTOMERNAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CUSTOMERNUMBER</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CUSTOMERNUMBER</text-property>
+                    <text-property name="heading">CUSTOMERNUMBER</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CUSTOMERNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CUSTOMERNUMBER</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CUSTOMERNAME</property>
+                    <property name="nativeName">CUSTOMERNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">CUSTOMERNUMBER</property>
+                    <property name="nativeName">CUSTOMERNUMBER</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+CUSTOMERS.CUSTOMERNAME,CUSTOMERS.CUSTOMERNUMBER
+FROM
+CUSTOMERS]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CUSTOMERNAME</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CUSTOMERNAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CUSTOMERNAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CUSTOMERNUMBER</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CUSTOMERNUMBER</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CUSTOMERNUMBER</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Orders" id="6">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ORDERNUMBER</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ORDERNUMBER</text-property>
+                    <text-property name="heading">ORDERNUMBER</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ORDERDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ORDERDATE</text-property>
+                    <text-property name="heading">ORDERDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SHIPPEDDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SHIPPEDDATE</text-property>
+                    <text-property name="heading">SHIPPEDDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">STATUS</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">STATUS</text-property>
+                    <text-property name="heading">STATUS</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CUSTOMERNUMBER</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CUSTOMERNUMBER</text-property>
+                    <text-property name="heading">CUSTOMERNUMBER</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">CustID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">103</expression>
+                    <property name="isOptional">true</property>
+                    <property name="allowNull">true</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ORDERNUMBER</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ORDERDATE</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">SHIPPEDDATE</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">STATUS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CUSTOMERNUMBER</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ORDERNUMBER</property>
+                    <property name="nativeName">ORDERNUMBER</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">ORDERDATE</property>
+                    <property name="nativeName">ORDERDATE</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">SHIPPEDDATE</property>
+                    <property name="nativeName">SHIPPEDDATE</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">STATUS</property>
+                    <property name="nativeName">STATUS</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CUSTOMERNUMBER</property>
+                    <property name="nativeName">CUSTOMERNUMBER</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select CLASSICMODELS.ORDERS.ORDERNUMBER,
+CLASSICMODELS.ORDERS.ORDERDATE,
+CLASSICMODELS.ORDERS.SHIPPEDDATE,
+CLASSICMODELS.ORDERS.STATUS,
+CLASSICMODELS.ORDERS.CUSTOMERNUMBER
+from CLASSICMODELS.ORDERS
+where CLASSICMODELS.ORDERS.CUSTOMERNUMBER=?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+          <design:precision>10</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Nullable</design:nullability>
+        </design:attributes>
+        <design:inputAttributes>
+          <design:elementAttributes>
+            <design:optional>true</design:optional>
+          </design:elementAttributes>
+        </design:inputAttributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ORDERNUMBER</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ORDERNUMBER</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ORDERNUMBER</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ORDERDATE</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ORDERDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ORDERDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>SHIPPEDDATE</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>SHIPPEDDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>SHIPPEDDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>STATUS</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>15</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>STATUS</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>STATUS</design:label>
+            <design:formattingHints>
+              <design:displaySize>15</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CUSTOMERNUMBER</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CUSTOMERNUMBER</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CUSTOMERNUMBER</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <list id="7">
+            <property name="dataSet">Customers</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">CUSTOMERNAME</property>
+                    <text-property name="displayName">CUSTOMERNAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CUSTOMERNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CUSTOMERNUMBER</property>
+                    <text-property name="displayName">CUSTOMERNUMBER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CUSTOMERNUMBER"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <header>
+                <grid id="156">
+                    <column id="157"/>
+                    <column id="158"/>
+                    <row id="159">
+                        <cell id="160">
+                            <image id="164">
+                                <property name="height">2in</property>
+                                <property name="width">4in</property>
+                                <property name="source">embed</property>
+                                <property name="imageName">10-best-shopping-store-logo.gif</property>
+                            </image>
+                        </cell>
+                        <cell id="161">
+                            <property name="fontSize">36pt</property>
+                            <label id="165">
+                                <property name="fontSize">50%</property>
+                                <text-property name="text">Cutomer Order's</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                </grid>
+            </header>
+            <detail>
+                <table id="122">
+                    <property name="pageBreakAfter">always</property>
+                    <property name="dataSet">Orders</property>
+                    <list-property name="paramBindings">
+                        <structure>
+                            <property name="paramName">CustID</property>
+                            <simple-property-list name="expression">
+                                <value type="javascript">row["CUSTOMERNUMBER"]</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">ORDERNUMBER</property>
+                            <text-property name="displayName">ORDERNUMBER</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["ORDERNUMBER"]</expression>
+                            <property name="dataType">integer</property>
+                        </structure>
+                        <structure>
+                            <property name="name">ORDERDATE</property>
+                            <text-property name="displayName">ORDERDATE</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["ORDERDATE"]</expression>
+                            <property name="dataType">date</property>
+                        </structure>
+                        <structure>
+                            <property name="name">SHIPPEDDATE</property>
+                            <text-property name="displayName">SHIPPEDDATE</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["SHIPPEDDATE"]</expression>
+                            <property name="dataType">date</property>
+                        </structure>
+                        <structure>
+                            <property name="name">STATUS</property>
+                            <text-property name="displayName">STATUS</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["STATUS"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">CUSTOMERNUMBER</property>
+                            <text-property name="displayName">CUSTOMERNUMBER</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["CUSTOMERNUMBER"]</expression>
+                            <property name="dataType">integer</property>
+                        </structure>
+                    </list-property>
+                    <column id="151"/>
+                    <column id="152"/>
+                    <column id="153"/>
+                    <column id="154"/>
+                    <column id="155"/>
+                    <header>
+                        <row id="123">
+                            <cell id="124">
+                                <label id="125">
+                                    <text-property name="text">ORDERNUMBER</text-property>
+                                </label>
+                            </cell>
+                            <cell id="126">
+                                <label id="127">
+                                    <text-property name="text">ORDERDATE</text-property>
+                                </label>
+                            </cell>
+                            <cell id="128">
+                                <label id="129">
+                                    <text-property name="text">SHIPPEDDATE</text-property>
+                                </label>
+                            </cell>
+                            <cell id="130">
+                                <label id="131">
+                                    <text-property name="text">STATUS</text-property>
+                                </label>
+                            </cell>
+                            <cell id="132">
+                                <label id="133">
+                                    <text-property name="text">CUSTOMERNUMBER</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="134">
+                            <cell id="135">
+                                <data id="136">
+                                    <property name="resultSetColumn">ORDERNUMBER</property>
+                                </data>
+                            </cell>
+                            <cell id="137">
+                                <data id="138">
+                                    <property name="resultSetColumn">ORDERDATE</property>
+                                </data>
+                            </cell>
+                            <cell id="139">
+                                <data id="140">
+                                    <property name="resultSetColumn">SHIPPEDDATE</property>
+                                </data>
+                            </cell>
+                            <cell id="141">
+                                <data id="142">
+                                    <property name="resultSetColumn">STATUS</property>
+                                </data>
+                            </cell>
+                            <cell id="143">
+                                <data id="144">
+                                    <property name="resultSetColumn">CUSTOMERNUMBER</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="145">
+                            <cell id="146"/>
+                            <cell id="147"/>
+                            <cell id="148"/>
+                            <cell id="149"/>
+                            <cell id="150"/>
+                        </row>
+                    </footer>
+                </table>
+                <data id="8">
+                    <property name="resultSetColumn">CUSTOMERNAME</property>
+                </data>
+            </detail>
+        </list>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">10-best-shopping-store-logo.gif</property>
+            <property name="type">image/gif</property>
+            <property name="data">
+                R0lGODlhlAIEAeYAAAAAAP///5EWFm0JCYUSEoQSEogTE4sUFIcTE4YTE48VFY4VFYoUFIkUFI0VFYwV
+                FZAWFo8WFp4eHpAcHHYYGIwhIaQsLJQoKLI4OH8oKJMwMJo0NKo6OrdERIg3N7BISJs/P55BQbxRUbZW
+                VqNNTcBdXZJHR8VqarxlZatcXJtWVsp2dsNzc7Jra6RmZs+Dg8mBgbp6etSPj611dWhHR86OjsGIiNib
+                m7aEhNScnHdYWMmXl92oqL+Tk9qqqpd3d+K0tNGmpqeHh8iiouG4uLeWlufBwdi1tde3t9GysufHx+zN
+                zeDExNrBwe3V1fHa2ujS0uTR0fPj4/Xm5vDh4e3g4Pnx8frz8/fw8Pbw8O/v79/f38/Pz7+/v6+vr5+f
+                n4+Pj39/f3BwcGBgYFBQUEBAQDAwMCAgIBAQEP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAGkALAAAAACUAgQBAAf/gAGC
+                g4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2+
+                v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6
+                +/z9/v8AAwocSLCgwYMIEypcyLChw4cQI0qcSLGixYsYM2rcyLGjx48gQ4ocSbKkyZMoU6pcybKly5cw
+                Y8qcSbOmzZs4c+rcybOnz59AgwodSrSo0aNIkypdyrSp06dQo0qdSrWq1atYs2rdyrWr169gw4odOzNK
+                k7M9cKhdi6PH2SZR/8jKlWkWxwwTHgbo3cu3r18PJlzgSBJ3rmGQVYbc9cu4seO+gYcUPkxZYmIVFB5r
+                3vyYgooeVSqLThhlRl7OqFM3zjBj8ujX/KrgyKC6tm2/rF3D3i1viInbwIPv9TAkC+/j7LL0oH2bggkV
+                apO8TfQ2iVoVJjI3x2EcufdxWXBoR+0cx5AmnZoMwZG9tovQ3+NzGzJecwYXQ+CXSuyC+WYK3MknYDVN
+                nKbZZ/qxchlnFAwx4IPOZDHDZioUV0sWSaiwmQkJQujhMFH4x5gHPXSXSxZDGMgYBT186GIwPTzmAnrA
+                ROHCYyqY+OKOt9zY2HvFyFYfXx50yOORrmTxG/9jQCITXmMU6IbklKhkoeJeJkh5TBUa+hUllWCisiRf
+                DUbThIh6fRnmmqH4yFeO00jopZFs1mlJjH21+MkURsgABCd/VtLEkB7oaOehkkTRl5qbTAHECyJgIOkK
+                mwCBQQc3XEGJlX3NgOinkow5QJGaPMHDCpFKquqlm6R66QtTTJKFm3rRCOqtigxBpKGSLHHDCh2sKqyq
+                T2RixLAYvLDEJLRmgOuziPhXKCW+noDstZIGeom1155ghCS0OgjtuAHomiavilzRZwnYtivpC5gs4S4G
+                ImjriJvOkgvtkowq4qgM7M47rwiYvCDwpZk+YmAS+uKaxV56IvLEo64eLHD/rJVMYbGkHciA8SJVaOdC
+                w7eaa8IhpgK78coY2CuJwSwnW+wiSaRJMqi+cUjIDScEGzPL8BoChMuHXPGzqicsq8hdOt88rs9Hr1zC
+                IZHWqykiN0Star1Od23IClqzfPUglqqK6diDXAF12CIk7HXXPIS98reEVKwqrISULbfZHr9dJxQkBC74
+                4IOHMMHhiCeu+OKMN674BoQ7PsHgF0hu+eWEZy44FX4/iEUBoIcu+uikl2766ainrvrqrLcueucQui77
+                7LTXbrvqGsD+IAm39+7778CDToLuA/Ie/PHIJ196DMQLaIPy0EcPvA3Ny/e86AQcoP323Hfv/ffghy/+
+                //jkl2++9w2IzkT18R1BugDwxy///PTXb//9+Oev//7807+A6FBg33eYQLoI9O+ACEygAhc4vwO8ToDe
+                oQLpFsDAClrwggtkQOhyB0HvkO4BGAyhCEcoPwSEbngdRE4FRncAErrwhQtMQOhakELkGC90DYChDneY
+                P9FRr4a8uSHoEMDDIhpRAAoQXRCAyJsWjC4BR4wiDP8XuvUxETbXE50UtzhCB4aOc1d8TRZDx8UyXtCL
+                oAsjbIJAOgWY8Y0KNCHoKqDG1xBwdBSEox75J8cCoLCOlbmj6PK4x0LeT3QpAKRoBBm6FhrykfTzoSJF
+                QzpHQvKSVATdDyd5mEpe8v+TmSyAFTlpGNIR8ZOQRKMoSdnJ0Z0SlYZUJRhZKRcQuBKWjzTAA2kpFyEW
+                AIq4LGQfC8DLufiyAMEspAyFV8xevi+ZehTdH5sZlmNCM5ozpOZYUvDMa5YxlJvU5lfGCDoIePObkhQn
+                WMhZAEKeM4oOUKI61znBd25RlaOcJ1fY6U57FhGf+vQKP/0ZxfR9MaBdGShBjThMhCa0ngstYkMduhWF
+                RnSHyywAHSmqFYteFIbS5GhHIfpRkJ5QpFnxaElJGFKUXoWdDljpC0NJQ5dahZ2WlKkIwWnTm3pSpyPk
+                aU+pAlOgBjWdQ5WKSo1aQVXuIKlTWSpTFwhQqEZFqlP/TWBVrfoUrGb1gFvlalO8+lX+abCKYu0qScsa
+                R/Wl1SlkZWv+homFt451rXI94ETtuhQn4jGvbQ0dX5lyzH4Cdn97HSxSjmnAw+p1l4o9ijUd+1jBRnax
+                3aTs/jJKzMtKNrOa7SFkPTsUDYA2tIccLWmDUjrU7m90qy2KKV2rP9FxMLZCmS1t8ddS3LL2lrtNLTN9
+                CxQo6Da49estcXvCSNDlFLnyU+5yd9LcAjwXuvCT7nRzUt3rYle7270JTrEbyQ2GlydxpS1sz6uT9LqW
+                s+zViV9F50byllC18Z3JZO0bv8Tmlyb75a8A/PtfmZgWewLuL34L/JLjCpjADG4w/3ATDOEIs8S4o8th
+                ggWgS8taGCbd3bAAZPlhEP80wWEt8Urc69oUqzglLEati198kvmGzpwbjidaabySAAs4lEvksUp8CcwN
+                C1XIKHHwj5GKZJOQzgAizm7owtnkkWBYdN61r+hqWmWShDjK4O2yR9j41yj3cZpiBgk76yviPoIgzSOx
+                MeiiDD+DphHOIfElAeg84gXjOSO2FN0rRazKuv7ZI6TTcJRDmc9DZ+RzLOQzox3NkeqCkM4QEN1TKa0R
+                Mg+SzwJgMqctwk4c0zmjzBs1RuSMTFCfWdUY8eWgo4xGNMNaIisUXQIWwOte+/rXwA62sIdN7GIb+9jI
+                BradO/97a4pI79nQnl2zKVLdaFv72jueNkTch+1ud7vR2mYIO71NbuhROdwLYXW51328VKO7IVBggrzn
+                Te962/ve+M63vvfN7377+9/zDuC7B07wghv84PLxgRQQjiQfSOADVmB4QroAhjBYvAtbSAQXKB6GMoTD
+                CRaQwMMjLvGBbGEMAEi5ylN+hjBkfBBdWHnKwSGFkIv84SUXiBhkzvOUj0ELgoi5zL9hhQ/c/OYsyLk/
+                tGCGnjsdDV0IgNBX/g0nHP3mEFc6P8rg9K4DwAtTVzk4HH50DpBc6/kAg9e7jgYv8DwcZJeABZyAdn1o
+                AQ1rd3oYwj5zuIuc7nXPxxecPgb/sHtBDGeQ+Rik/nZxsMAHgdcHGXiOBi4YoguJB8DiGT90WWjBCxYP
+                gxdePgkl1OD0PgC8MKxAhIVHPhiZX7kYEKGFM2ye81QfxBZAHwYwRL0TYQBAGYYvht93YfI8N8MXDqGE
+                h49gBI8XhBRYYPOy1+DshbCCEnxQAxSMQAKCcAIRTg+DEag+AE6owfNHUAPXP0IJ8I9//LmPAqOD//XB
+                6PnvD2F5mDe+C1wnc2ewfIrABWIQgABwBmUABqRHCMG3cmGgBTvndWfQf4PQfEc3AgGQA9V3dSJnAZBn
+                CBh4dILwfUenBAFgBTnAAR4oATCAfYUgBT6AAizYgjaogfgH/ww95wWOwHcAEAAT6HRkAHSGwAUI2HM/
+                VwgPqHJi0HR5BwAEKAgjKHLQZ4MemHSFMIUiV4JXB381aIMfcAjTZ4Vk6II5qIPJR4SL4INL2HUeVwhq
+                l3eV54BP2HVRqIVleIVZ6IFceHQ1kIdmSAg+0IGAeHQheIa9cIQqN4CM4IN1GAaEgHJ1CIWD0IaTuHK/
+                h4eFeHM1QAh42IebeHPuRwSh2ILnh4i6EIc9dwZiYIGXd4krhwZEOHiw2H+WyHMKWAZ4t4pAp4lHZwHP
+                94UeqHqfGAAmWIqBaAWEWIgWUANEgIKo2At3t3Yt14BB53VoUAZOyHNgEABcAIspJ4sBcP+L4ehyhACA
+                PQeJvigBLHB+Y+iBOBgAxXiMHvgBp0d9HsgBgpADLfgBPhBxVuAD9nd1hxiNvaCKa0cGruiIAGAG+8cF
+                u7hyi6eIPvcFXUBxFKl549hzZuCKhICQ4agFmmgBRIAISrCM0DiPLWgB0Ch9wihyETeQSHcILJCPBgkM
+                kviEs3eNaVgIPlgGPmgG1ih1EalyW3CL4pgItwgGmtiSzOeBKCCFfGiMHjh3hkCKXRgA8JgI9Ph3N/kL
+                5Eh4PBmLakgI25hyZYB8KmcGZUkIEClzYnCL+5cIsZdyZoCHnbgINXl1EaeSBIkIHgh/HliSiICVR5cD
+                X/kLRliH3ej/g914CIpIkUN5jgJoiW+4CLS4ckhwdRYAg2I4mPI4lV2pj4DZhcWYCB6Yl4npCycnh1rg
+                g5MZABkpkYygiDmZclG4CDwnBFeHhYzQlZ3olzcHA6hpmlNZnH64msGgBWFQl9zog4kwmyo3l4jgdit3
+                lgAQm4agiDrwl43wh0cXlcIpcqppCIEpBcOYCFbnncoZDF/gnGsJnYggnX23CFuwdo+giDSQld95dRo4
+                nhJQnoUQmAHwklGJCCjgge7XnsEAktPZeJCJn40goY2gn/zJCOB5c/8pmlcnoIRAoBk6k4YQoiIXhgxK
+                DJm5cg4anRSqm17nkYlQlACwn4fpCAma/4GheXWgSJ7IeXMoaAUvKQEjQAQASQRdKXKEeaLDgJ0AcIss
+                6nXUyX8yJ6OPuYY89wNXd6CLoIxXR5wA6qGDQKA5Woq+qaS2IAZtWQgU6aTzOaWKxwhBiJYCmKaGoJYq
+                VwTpuQj8eHWI+aU9KnItGXeFSJxmegsoJ5SIcJ88x6YRunK6KHMwSghbIKO3eHvViYt4mHWJUHMKOqY3
+                t6MB+qcS4JROEKT96JSFOgtBiAYRWAhcwKQAIJ+NqnJlcJsNSacBwHQyRwbkaKmuKqMAIAaaqKmGUHT1
+                KJU6SpXJWZonOKKASKipOgspSqsW14RCKKvbKXNloKjXOZSYx3NdEP+WQFkIzOl0W+CLHFCQgjCILRiC
+                fsqsPmoIMFCIxBqtrjCtl2iREJqtjhoAtlqRFwkGGelxYWmXY2BxZACsKTd76ygBHIAC92iqOIesJKis
+                nCiqqMql7PeMSpADRzqx9uoKdnqJZoB7Ytem/TqNsIgGGVewdciWnoqMckeMHLqshyCmg0AEOeCZAUAE
+                ywimIXsKurqyGYetaqqtgvCNtSgILiuH/dewgFiQ73qzF9oI6/mLPBu0pqAFI7t2c2iy9cmvtDoI+Mp2
+                PMi04KhyXxuzpaiuU2ueVdsI88qeWrsKX6CwPLet/td5s4qWbgmfyeeKlnm3eYeoFziMEvuLqMr/tqAK
+                tFoZt4xwtcNZt66gBV8AqyyXm2D7gyg7toTAnHjLiEqItCcXuprLuFZQAxLbjDyrhaQJnBgrCVtJua+w
+                BV9wgMM3BmAQqUZocWCnnWIQlxYZqYIAesOXlmFAvJY5CJ/XccPHq1FKsZ96gd23fs6YtejHAs7olDAA
+                AzWgBKdoCCPgvT4AvtnXCLNLu+ywvKV3nLVgBc/HCIapoerbDuwrCadJC8bKjoqwvzZbv+lwv5GQv7Lg
+                vw8XvugnkzeHwABMDgIMCQQMC1JgqvYYfzlwo+nbwOjwwO/nvrKwlzIrAQysweLAwY4QwbEAwm1Lwupg
+                wo2AwrHAgaEIgiysbQ6v+QVhQAbDVwlKMH4sMAIWkAvvmIcjsKA1PBQq+LEihwKLe8RGsX2nVwM50MRO
+                XMVWfMVYnMVavMVc3MVe/MVgHMZiPMZkXMZmfMZonMZqvMZs3MZu/MZwHMdyPMd0XMd2fMd4nMd6vMe+
+                EAgAOw==
+</property>
+        </structure>
+    </list-property>
+</report>
