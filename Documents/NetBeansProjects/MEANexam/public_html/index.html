@@ -13,6 +13,7 @@ background-image:url("https://d1dh93s7n44ml6.cloudfront.net/blog/wp-content/uplo
   form.tab-form-demo .tab-pane {
     margin: 20px 20px;
   }
+  
 </style>
     <div class="container container-table">
     <div class="row vertical-center-row">
@@ -43,7 +44,9 @@ background-image:url("https://d1dh93s7n44ml6.cloudfront.net/blog/wp-content/uplo
                        <label for="phone">Enter your Phone Number</label>
   <input type="text" class="form-control" id="phone"
   name="phone" placeholder="Enter Phone Number" required></div>
-            <button type="button"   class="btn btn-primary" ng-click="formNext()" >Next</button>
+  <label class="radio-inline"><input type="radio" name="optradio">Male</label>
+  <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+            <br><button type="button"   class="btn btn-danger" ng-click="formNext()" >Next</button>
           </div>
         </ng-form>
       </uib-tab>
@@ -63,7 +66,7 @@ background-image:url("https://d1dh93s7n44ml6.cloudfront.net/blog/wp-content/uplo
         </div>
        
         <div class="form-group input-group">
-        <label>Date Depart</label>
+        <label>Start Event</label>
         <div class="row">
         <div class="col-md-8">
        <p class="input-group">
@@ -74,7 +77,8 @@ background-image:url("https://d1dh93s7n44ml6.cloudfront.net/blog/wp-content/uplo
         </p>
         </div>
         </div>
-          <label>Date Return</label>
+
+          <label>End Event</label>
         <div class="row">
         <div class="col-md-8">
       <p class="input-group">
@@ -85,8 +89,14 @@ background-image:url("https://d1dh93s7n44ml6.cloudfront.net/blog/wp-content/uplo
         </p>
         </div>
         </div>
+
+        <div class="form-group">
+          <label for="comment">Comment:</label>
+          <textarea class="form-control" name="comment" placeholder="Comment here..." rows="2" id="ct"></textarea>
+        </div> <br>
+
         </div>
-             <button type="button"   class="btn btn-primary" ng-click="formNext()" >Next</button>
+             <button type="button"   class="btn btn-danger" ng-click="formNext()" >Next</button>
           </div>
         </ng-form>
       </uib-tab>
@@ -179,14 +189,14 @@ angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope,
          $.ajax({
     method: "POST",
     url: "/index",
-    data: { firstname :document.getElementById("fname").value, lastname :document.getElementById("lname").value,email:document.getElementById("email").value,phone:document.getElementById("phone").value,date:document.getElementById("dt").value,dateTo:document.getElementById("dtl").value}
+    data: { firstname :document.getElementById("fname").value, lastname :document.getElementById("lname").value,email:document.getElementById("email").value,phone:document.getElementById("phone").value,date:document.getElementById("dt").value,dateTo:document.getElementById("dtl").value,comment:document.getElementById("ct").value}
     
 })
   .done(function( msg ) {
     $.ajax({
     method: "GET",
     url: "/flightDetails",
-    data: { firstname :document.getElementById("fname").value, lastname :document.getElementById("lname").value,email:document.getElementById("email").value,phone:document.getElementById("phone").value,date:document.getElementById("dt").value,dateTo:document.getElementById("dtl").value}
+    data: { firstname :document.getElementById("fname").value, lastname :document.getElementById("lname").value,email:document.getElementById("email").value,phone:document.getElementById("phone").value,date:document.getElementById("dt").value,dateTo:document.getElementById("dtl").value,comment:document.getElementById("ct").value}
 })
   .done(function( msg ) {
     alert( "Data sent " + msg );
